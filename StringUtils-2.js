@@ -1,4 +1,5 @@
 const readline = require('readline');
+const removeDuplicates = require('./removeDuplicates');
 
 String.prototype.isAlpha = function() {
   var regExp = /^[A-Za-z]+$/;
@@ -30,16 +31,6 @@ var interface = readline.createInterface( process.stdin, process.stdout );
     }
   }
 })();
-
-function removeDuplicates(string) {
-  var unique = '';
-  for (var i = 0; i < string.length; i++) {
-    if(unique.indexOf(string[i].toLowerCase()) < 0 && unique.indexOf(string[i].toUpperCase()) < 0) {
-      unique += string[i];
-    }
-  }
-  return unique;
-}
 
 process.on('exit', function(code) {
   return console.log(`Exiting with code ${code}`);

@@ -1,4 +1,5 @@
 const readline = require('readline');
+const removeDuplicates = require('./removeDuplicates');
 
 String.prototype.isAlpha = function() {
   var regExp = /^[A-Za-z]+$/;
@@ -26,13 +27,3 @@ var prompt = function(q) {
     }
   }
 })();
-
-function removeDuplicates(string) {
-  var unique = '';
-  for (var i = 0; i < string.length; i++) {
-    if(unique.indexOf(string[i].toLowerCase()) < 0 && unique.indexOf(string[i].toUpperCase()) < 0) {
-      unique += string[i];
-    }
-  }
-  return unique;
-}
