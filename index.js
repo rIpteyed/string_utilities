@@ -1,12 +1,10 @@
 const readline = require('readline');
-const { removeDuplicates, isAnnagram } = require('./StringUtils');
+const StringUtils = require('./StringUtils');
 
 String.prototype.isAlpha = function() {
   var regExp = /^[A-Za-z]+$/;
   return (this.match(regExp));
 };
-
-console.log(`\n>>>>>>>> Welcome to String Utilities <<<<<<<<\n`);
 
 var interface = readline.createInterface( process.stdin, process.stdout );
 var prompt = function(q) {
@@ -21,7 +19,10 @@ var prompt = function(q) {
   });
 };
 
+// Main
 (async function main() {
+  console.log(`\n>>>>>>>> Welcome to String Utilities <<<<<<<<\n`);
+
   var type = '';
   while(type !== 'x') {
     type = await prompt('Options:\n\n[1]-removeDuplicates\n[2]-isAnnagram\n[x] to exit.\n\n');
@@ -43,7 +44,7 @@ async function tryRemoveDuplicates() {
   while (response !== 'quit') {
     response = await prompt('Please enter a string (alpha only) or [quit]:\n');
     if(response.isAlpha()) {
-      console.log(`\nResult: ${removeDuplicates(response)}\n`)
+      console.log(`\nResult: ${StringUtils.removeDuplicates(response)}\n`)
     } else {
       console.log('\n!! Please try again with alphabetic characters only !!\n')
     }
@@ -59,7 +60,7 @@ async function tryIsAnnagram() {
     if(words.length != 2) {
       console.error('\n!! You must enter two words with a space in between !!\n');
     } else {
-      console.log(`Result: ${isAnnagram(words)}`);
+      console.log(`Result: ${StringUtils.isAnnagram(words)}`);
     }
   }
 }
