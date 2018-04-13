@@ -1,6 +1,6 @@
 
-module.exports = {
-  removeDuplicates: function (string) {
+const StringUtils = {
+  removeDuplicates: (string) => {
     var unique = '';
     for (var i = 0; i < string.length; i++) {
       if(unique.indexOf(string[i].toLowerCase()) < 0 && unique.indexOf(string[i].toUpperCase()) < 0) {
@@ -10,10 +10,10 @@ module.exports = {
     return unique;
   },
 
-  isAnnagram: function (words) {
+  isAnnagram: (words) => {
     var resultString = '',
-      a = this.removeDuplicates(words[0]),
-      b = this.removeDuplicates(words[1]);
+      a = StringUtils.removeDuplicates(words[0]),
+      b = StringUtils.removeDuplicates(words[1]);
 
     // Short curcuit the possibility that duplicated characters will return false positive and that the lengths don't match to begin with
     if(a.length != b.length || words[0].length != words[1].length) {
@@ -29,3 +29,5 @@ module.exports = {
     return resultString === words[0];
   }
 };
+
+module.exports = StringUtils;
