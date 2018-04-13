@@ -1,4 +1,5 @@
-// Remove Duplicates
+
+2. Remove Duplicates
 // -----------------
 //
 // Please follow the below instructions exactly and carefully
@@ -35,3 +36,6 @@
 // 
 // AbrCdlkzm
    AbrCdlkzm
+
+
+2. Test whether 2 words are annagrams
